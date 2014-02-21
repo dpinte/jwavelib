@@ -38,7 +38,7 @@ import com.dipole.libs.Constants;
  * <p>
  * dailycall.hour=0<br>
  * dailycall.min=5<br>
- * sitename=Dapesco1<br>
+ * sitename=testsite<br>
  * modules=wth1,wth2,wfl3<br>
  * repeaters=wtk1,wtk2<br>
  * wth1.type=wavetherm<br>

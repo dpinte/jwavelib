@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="JWaveLib" default="dist" basedir=".">
+    <description>
+        Build file for the JWaveLib
+    </description>
+	<!-- set lib properties -->
+	<property name="rxtx" location="/usr/share/java/RXTXcomm.jar"/>
+	<property name="junit" location="/usr/share/java/junit4.jar"/>
+	
+    <!-- set global properties for this build -->
+	<property name="version" value="1.1-dev"/>
+    <property name="src" location="."/>
+    <property name="build" location="build"/>
+    <property name="dist" location="dist"/>
+	<property name="doc" location="doc"/>
+
+    <target name="init" depends="clean">
+        <tstamp/>
+        <mkdir dir="${build}"/>
+    	<mkdir dir="${dist}"/>
+    	<mkdir dir="${doc}"/>
+    </target>
+
+    <target name="build" depends="init" description="compile the source " >
+        <!-- Compile the java code from ${src} into ${build} -->
+        <javac srcdir="${src}"
+        	   destdir="${build}"
+        	   source="1.3"
+               target="1.3"
+        	   excludes="com/coronis/test/**"
+        	   classpath="${rxtx}"
+        />
+        </target>
+
+	<target name="build-test" depends="init" description="build test">
+		
+		<javac srcdir="${src}"
+		       destdir="${build}"
+		       classpath="${rxtx}:${junit}"
+		/>
+	</target>
+	
+    <target name="dist" depends="build" description="generate the distribution" >
+        <jar jarfile="${dist}/JWaveLib-${version}-${DSTAMP}.jar"
+        	 basedir="${build}"/>
+    </target>
+
+	<target name="run-test" depends="build-test" description="run unit test">
+		<mkdir dir="${dist}/test"/>
+		<copy todir="${build}/com/coronis/test/modules/dataSet">
+			<fileset dir="${src}/com/coronis/test/modules/dataSet"/>
+	    </copy>
+		
+	    <junit printsummary="yes"
+		       fork="true"
+		 	   haltonfailure="no">
+	        <classpath>
+	    	    <pathelement location="${build}"/>
+	    	    <pathelement path="${java.class.path}:${rxtx}:${junit}"/>
+	    	</classpath>
+
+	    	<formatter type="plain"/>
+	    	  
+	    	<test name="com.coronis.test.ConfigTest" todir="${dist}/test"/>
+	    	<test name="com.coronis.test.frames.CoronisFrameBuilderTest" todir="${dist}/test"/>
+	    	<test name="com.coronis.test.frames.CoronisFrameReaderTest" todir="${dist}/test"/>
+	    	<test name="com.coronis.test.frames.CoronisFrameTest" todir="${dist}/test"/>
+	    	<test name="com.coronis.test.modules.ModuleTest" todir="${dist}/test"/>
+	    	<test name="com.coronis.test.modules.WavePortTest" todir="${dist}/test"/>
+	    	<test name="com.coronis.test.modules.WaveFlowTest" todir="${dist}/test"/>
+	    	<test name="com.coronis.test.modules.WaveTalkTest" todir="${dist}/test"/>
+	    	<test name="com.coronis.test.modules.WaveTankTest" todir="${dist}/test"/>
+	    	<test name="com.coronis.test.modules.WaveSense4_20Test" todir="${dist}/test"/>
+	    	<test name="com.coronis.test.modules.WaveSense5VTest" todir="${dist}/test"/>
+	    	<test name="com.coronis.test.modules.WaveThermDalasTest" todir="${dist}/test"/>
+	    	<test name="com.coronis.test.modules.WaveThermPT100Test" todir="${dist}/test"/>
+		</junit>
+	</target>
+	
+	<target name="obfuscate" depends="dist" description="obfuscate the jar">
+		<taskdef resource="proguard/ant/task.properties" 
+			classpath="/usr/share/ant-proguard.jar"
+		/>
+		<proguard obfuscate="true"
+			      microedition="true"
+			      usemixedcaseclassnames="true"
+			      useuniqueclassmembernames="true"
+			      overloadaggressively="true"
+			      preverify="true">
+			<injar file="${dist}/JWaveLib-${version}-${DSTAMP}.jar"/>
+			<outjar file = "${dist}/JWaveLib-${version}-API.jar"/>
+			
+			<libraryjar file="${java.home}/lib/rt.jar"/>
+			<libraryjar file="${rxtx}"/>
+			
+			<keep name="com.coronis.Config" access="public">
+				<method access="public"/>
+				<field access="public"/>
+			</keep>
+			
+			<keep name="com.coronis.CoronisLib" access="public">
+				<method name="moduleIdFromString"/>
+				<field name="version"/>
+			</keep>
+			
+			<keep name="com.coronis.logging.*" access="public">
+				<method access="public"/>
+				<field access="public"/>
+			</keep>
+			
+			<keep name="com.coronis.exception.*" access="public">
+				<method access="public"/>
+			</keep>
+				
+			<keep name="com.coronis.modules.WavePort" access="public">
+				<method name="getName"/>
+			    <method name="setDefaultParameters"/>
+				<method name="setSwitchModeStatus"/>
+				<method name="setRadioUserTimeOut"/>
+				<method name="setRadioACK"/>
+				<method name="setWakeUpLength"/>
+				<method name="setWakeUpType"/>
+				<method name="setAwakeningPeriog"/>
+				<method name="setExchangeStatus"/>
+				<method name="checkConnection"/>
+			</keep>
+				
+			<keep name="com.coronis.modules.DataLoggingModule" access="public">
+				<method name="getMaxdatalogCount"/>
+				<method name="getMaxDataPerSingleFrame"/>
+				<method name="getFrequency"/>
+				<method name="initialise"/>
+				<method name="stopDataLogging"/>
+				<method name="startDataLoggingNow"/>
+				<method name="startDataLoggingAt"/>
+				<method name="checkParameter"/>
+				<method name="getDataSet"/>
+				<method name="getAdvancedDataLog"/>
+				<method name="getDataLog"/>
+				<method name="getCurrentValue"/>
+				<method name="batteryEndOfLife"/>
+			</keep>
+			
+			<keep name="com.coronis.modules.Module" access="public">
+				<method access="public"/>
+				<field access="public"/> 
+			</keep>
+			
+			<keep name="com.coronis.modules.WaveFlow" access="public">
+				<method access="public"/>
+			    <field access="public"/>
+			</keep>
+				
+			<keep name="com.coronis.modules.WaveTalk" access="public">
+				<method access="public"/>
+				<field access="public"/>
+			</keep>
+			
+			<keep name="com.coronis.modules.WaveTank" access="public">
+				<method access="public"/>
+				<field access="public"/>
+			</keep>
+				
+			<keep name="com.coronis.modules.WaveTherm" access="public">
+				<method access="public"/>
+				<field access="public"/>
+			</keep>
+			
+			<keep name="com.coronis.modules.platform.RxTxSerialWavePort" access="public">
+			    <method name="connect"/>
+				<method name="disconnect"/>
+			</keep>
+			
+			<keep name="com.dipole.libs.Functions" access="public">
+				<method access="public"/>
+				<field access="public"/>
+			</keep>
+			
+			<keep name="com.dipole.libs.DataSet" access="public">
+				<method access="public"/>
+				<field access="public"/>
+			</keep>
+			
+			<keep name="com.dipole.libs.Measure" access="public">
+				<method access="public"/>
+				<field access="public"/>
+			</keep>
+		</proguard>
+	</target>
+		
+	<target name="javadoc" depends="init" description="generate all the javadoc">
+		<mkdir dir="${doc}/all"/>
+		<javadoc access="protected"
+			     author="true"
+			     destdir="${doc}/all"
+			     doctitle="JWaveLib-${version}"
+			     classpath="${rxtx}"
+			     nodeprecated="false"
+			     nodeprecatedlist="false"
+			     noindex="false"
+			     nonavbar="false"
+			     notree="false"
+			     source="1.3"
+			     splitindex="true"
+			     use="true"
+			     version="true">
+			
+			<packageset dir="${src}" defaultexcludes="yes">
+			    <include name="com/coronis/**"/>
+				<exclude name="com/coronis/test/**"/>
+			</packageset>
+	    </javadoc>
+	</target>
+	
+	<target name="javadoc-api" depends="init" description="generate all the javadoc for API version">
+		<mkdir dir="${doc}/api"/>
+		<javadoc access="public"
+			     author="true"
+			     classpath="${rxtx}"
+			     destdir="${doc}/api"
+			     doctitle="test"
+			     nodeprecated="false"
+			     nodeprecatedlist="false"
+			     noindex="false"
+			     nonavbar="false"
+			     notree="false"
+			     packagenames="com.coronis.exception,com.coronis.modules,com.coronis,com.dipole.libs"
+			     source="1.3"
+			     sourcefiles="com/coronis/modules/platform/RxTxSerialWavePort.java,com/coronis/logging/SimpleLogger.java,com/coronis/logging/Logger.java"
+			     sourcepath="."
+			     splitindex="true"
+			     use="true"
+			     version="true"/>
+
+	</target>
+	
+    <target name="clean" description="clean up" >
+        <!-- Delete the ${build} and ${dist} directory trees -->
+        <delete dir="${build}"/>
+    </target>
+	
+	<target name="dist-clean" depends="clean" description="all clean up">
+	    <delete dir="${dist}"/>
+	    <delete dir="${doc}"/>
+	</target>
+	   
+</project>

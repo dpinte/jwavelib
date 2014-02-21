@@ -1,0 +1,139 @@
+<?xlm version="1.0" ?>
+<relation>
+<!-- REQ_SEND_FRAME -->
+    <frame cmd="0x20">
+        <res cmd="0x21" level="1">
+            <parent>0x20</parent>
+        </res>
+        <res cmd="0x30" level="2">
+            <parent>0x21</parent>
+        </res>
+        <res cmd="0x31" level="2">
+            <parent>0x21</parent>
+        </res>
+        <res cmd="0x35" level="2">
+            <parent>0x21</parent>
+        </res>
+        <res cmd="0x36" level="2">
+            <parent>0x21</parent>
+        </res>        
+    </frame>
+
+<!-- REQ_SEND_MESSAGE -->    
+    <frame cmd="0x22">
+        <res cmd="0x21" level="1">
+            <parent>0x20</parent>
+        </res>
+        <res cmd="0x30" level="2">
+            <parent>0x21</parent>
+        </res>
+        <res cmd="0x31" level="2">
+            <parent>0x21</parent>
+        </res>
+        <res cmd="0x35" level="2">
+            <parent>0x21</parent>
+        </res>
+        <res cmd="0x37" level="2">
+            <parent>0x21</parent>
+        </res>
+    </frame>
+
+<!-- REQ_SEND_POLLING -->
+    <frame cmd="0x26">
+        <res cmd="0x21" level="1">
+            <parent>0x20</parent>
+        </res>
+        <res cmd="0x32" level="2">
+            <parent>0x21</parent>
+        </res>      
+    </frame>
+
+<!-- REQ_SEND_BROADCAST -->    
+    <frame cmd="0x28">
+        <res cmd="0x21" level="1">
+            <parent>0x20</parent>
+        </res>
+        <res cmd="0x38" level="2">
+            <parent>0x21</parent>
+        </res>
+        <res cmd="0x37" level="2">
+            <parent>0x21</parent>
+        </res>
+    </frame>
+    
+<!-- REQ_WRITE_RADIO_PARAM -->
+    <frame cmd="0x40">
+    	<res cmd="0x41" level="1">
+    		<parent>0x40</parent>
+    	</res>
+    </frame>
+    
+<!-- REQ_READ_RADIO_PARAM -->
+    <frame cmd="0x50">
+    	<res cmd="0x51" level="1">
+    		<parent>0x50</parent>
+    	</res>
+    </frame>
+
+<!-- REQ_SELECT_PHYCONFIG -->    
+    <frame cmd="0x64">
+    	<res cmd="0x65" level="1">
+    		<parent>0x64</parent>
+    	</res>
+    </frame>
+    
+<!-- REQ_READ_PHYCONFIG -->   
+    <frame cmd="0x66">
+    	<res cmd="0x67" level="1">
+    		<parent>0x66</parent>
+    	</res>
+    </frame>
+    
+<!-- REQ_SELECT_PHYCONFIG -->   
+    <frame cmd="0x60">
+    	<res cmd="0x61" level="1">
+    		<parent>0x60</parent>
+    	</res>
+    </frame>
+    
+<!-- REQ_READ_CHANNEL -->   
+    <frame cmd="0x62">
+    	<res cmd="0x63" level="1">
+    		<parent>0x62</parent>
+    	</res>
+    </frame>
+    
+<!-- REQ_WRITE_AUTOCORR_STATE -->   
+    <frame cmd="0x46">
+    	<res cmd="0x47" level="1">
+    		<parent>0x46</parent>
+    	</res>
+    </frame>
+    
+<!-- REQ_READ_AUTOCORR_STATE -->   
+    <frame cmd="0x5A">
+    	<res cmd="0x5B" level="1">
+    		<parent>0x5A</parent>
+    	</res>
+    </frame>
+    
+<!-- REQ_FIRMWARE_VERSION --> 
+    <frame cmd="0xA0">
+    	<res cmd="0xA1" level="1">
+    		<parent>0xA0</parent>
+    	</res>
+    </frame>
+    
+<!-- REQ_READ_REMOTE_RSSI --> 
+    <frame cmd="0x68">
+    	<res cmd="0x69" level="1">
+    		<parent>0x68</parent>
+    	</res>
+    </frame>
+    
+    <frame cmd="0x6A">
+    	<res cmd="0x6B" level="1">
+    		<parent>0x6A</parent>
+    	</res>
+    </frame>
+</relation>

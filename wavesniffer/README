@@ -1,0 +1,70 @@
+Projet:			 WaveSniffer
+Description: 	sources code for the WaveSniffer project
+
+/!\ The java software Analyser and Analyser-plug are outdated, please use JWaveTool
+
+[firmware]
+- Contains firmware for the sniffer based on a atmega640
+- The serial communication bandwidth (AKA baudrate) between sniffer and PC is 115200 baud
+- data output shape:
+    <DIR><DATA><TS> 
+
+[bootloader]
+- Contains a butterfly compatible bootloader for the atmel ATmega640
+- used to update easily the frimware
+ 
+[Test]
+ - serial_test.py:
+	 - It's a simple python script to test firmware.
+	 - There are 3 ways to send frames to the sniffer:
+	 	- random generated frames
+	 	- from a file that contain frame (one frame per line)
+	 	- user generated frame
+	- If it's used to read, frame are displayed in HEX format
+	- This script can be used as a base for a better test protocol
+
+[JWaveTool]
+- Contains a modular tool or helping Wavenis integrator
+- Current Modules:
+    - waveSniffer: a module to use with the waveSnifer hardware (monitoring wavenis protocol)
+- requirement:
+	- RXTX (only for wavesniffer module)
+	- log4j
+	- latest svn vrsion of JWaveLib
+	- JUnit (optional)
+
+- The core folder contains the main software with the analyser
+- The module folder contains all modules
+
+===========================================================================
+Outdated information or software
+===========================================================================
+
+[Analyser]
+- Contains the analyser for frame outputed by the sniffer.
+- this is the non-modular version
+- cli arguments:
+	- first argument: USER INTERFACE : 'cli', 'gui', 'gen'
+		- 'cli' launch the command line interface.
+		- 'gui' launch the graphical interface.
+		- 'gen' launch a very basic sniffer frame generator. ONLY for testing purpose.
+	- second argument: SERIAL PORT (defaulted to /dev/ttyS0)
+
+- requirement:
+		- lib java RXTX for serial communication
+		- jUnit for unit testing
+		- The SVN version of JWavelib
+		
+[Analyser-plug]
+- Contains the modular version of the analyser software
+- need the latest svn version of JWavelib
+- until now, CLI is broken so it's disabled
+
+[Analyser-modules]
+- Contains all the modules for Analyser-plug
+- depends of:
+    - latest version of Analyser-plug
+    - latest svn version of JWavelib
+    - Latest version of RXTX (only for analyser module)
+    - Log4J 1.2
+    - JUnit 3 (optional)

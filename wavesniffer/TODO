@@ -1,0 +1,15 @@
+[firmware]
+ - testing
+
+[JwaveTool]
+- improve unit testing
+- improve documentation
+- improve plugin api
+    - track module load/unload
+    - ...
+- Create some more modules:
+    - A module to test WaveSniffer hardware and firmware (Work In Progress)
+    - A frame generator plugged directly to the WavePort
+    - A simulator
+    - A too like graphset To easy configure Ewon
+    - some more, ...

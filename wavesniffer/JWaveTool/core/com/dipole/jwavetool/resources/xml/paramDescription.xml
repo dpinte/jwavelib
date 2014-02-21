@@ -1,0 +1,82 @@
+<?xlm version="1.0" ?>
+<description>
+	<param val="0x00">
+		<name>AWAKENING_PERIOD</name>
+		<desc></desc>
+	</param>
+	
+	<param val="0x01">
+		<name>WAKEUP_TYPE</name>
+		<desc></desc>
+	</param>
+	
+	<param val="0x02">
+		<name>WAKEUP_LENGTH</name>
+		<desc></desc>
+	</param>
+	
+	<param val="0x03">
+		<name>WAVECARD_POLLING_GROUP</name>
+		<desc></desc>
+	</param>
+	
+	<param val="0x04">
+        <name>RADIO_ACKNOWLEGDE</name>
+		<desc></desc>
+	</param>
+	
+	<param val="0x05">
+		<name>RADIO_ADDRESS</name>
+		<desc></desc>
+	</param>
+	
+	<param val="0x06">
+		<name>RELAY_ROUTE_STATUS</name>
+		<desc></desc>
+	</param>
+	
+	<param val="0x07">
+		<name>RELAY_ROUTE</name>
+		<desc></desc>
+	</param>
+	
+	<param val="0x08">
+		<name>POLLING_ROUTE</name>
+		<desc></desc>
+	</param>
+	
+	<param val="0x09">
+		<name>GROUP_NUMBER</name>
+		<desc></desc>
+	</param>
+	
+	<param val="0x0A">
+		<name>POLLING_TIME</name>
+		<desc></desc>
+	</param>
+		
+	<param val="0x0C">
+		<name>RADIO_USER_TIMEOUT</name>
+		<desc></desc>
+	</param>
+		
+	<param val="0x0E">
+		<name>EXCHANGE_STATUS</name>
+		<desc></desc>
+	</param>
+		
+	<param val="0x10">
+		<name>SWITCH_MODE_SATUS</name>
+		<desc></desc>
+	</param>
+	
+	<param val="0x16">
+		<name>WAVECARD_MULTICAST_GROUP</name>
+		<desc></desc>
+	</param>
+	
+	<param val="0x17">
+        <name>BCST_RECEPTION_TIMEOUT</name>
+		<desc></desc>
+	</param>
+</description>

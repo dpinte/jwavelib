@@ -1,0 +1,238 @@
+<?xlm version="1.0" ?>
+<description>
+	<cmd val="0x00">
+		<name>ERROR</name>
+		<desc>Error frame</desc>
+	</cmd>
+	
+	<cmd val="0x06">
+		<name>ACK</name>
+		<desc>Aknowledgement frame</desc>
+	</cmd>
+	
+	<cmd val="0x15">
+		<name>NAK</name>
+		<desc>Non-acknowledgement frame</desc>
+	</cmd>
+	
+    <cmd val="0x20">
+        <name>REQ_SEND_FRAME</name>
+        <desc>Request to send a radio frame to wait for the radio response.</desc>
+    </cmd>
+
+    <cmd val="0x21">
+        <name>RES_SEND_FRAME</name>
+        <desc>Radio  board response to the frame tranmission.</desc>
+    </cmd>
+
+    <cmd val="0x22">
+        <name>REQ_SEND_MESSAGE</name>
+        <desc>Request to send a radio frame without waiting for radio response.</desc>
+    </cmd>
+
+    <cmd val="0x24">
+        <name>REQ_SEND_BROADCAST_RESPONSE</name>
+        <desc>Request to send a radio frame in response to a broadcast frame.</desc>
+    </cmd>
+
+    <cmd val="0x26">
+        <name>REQ_SEND_POLLING</name>
+        <desc>Request to send a radio frame in polling mode.</desc>
+    </cmd>
+
+    <cmd val="0x28">
+        <name>REQ_SEND_BROADCAST</name>
+        <desc>Request to send a frame in broadcast mode.</desc>
+    </cmd>
+
+    <cmd val="0x2A">
+        <name>REQ_SEND_BROADCAST_MESSAGE</name>
+        <desc>Request to send a radio frame in broadcast mode without waiting for radio response.</desc>
+    </cmd>
+
+    <cmd val="0x30">
+        <name>RECEIVED_FRAME</name>
+        <desc>Radio frame received by radio board.</desc>
+    </cmd>
+
+    <cmd val="0x31">
+        <name>RECEPTION_ERROR</name>
+        <desc>a</desc>
+    </cmd>
+
+    <cmd val="0x32">
+        <name>RECEIVED_FRAME_POLLING</name>
+        <desc>a</desc>
+    </cmd>
+
+    <cmd val="0x34">
+        <name>RECEIVED_BROADCAST_RESPONSE</name>
+        <desc>a</desc>
+    </cmd>
+
+    <cmd val="0x35">
+        <name>RECEIVED_FRAME_RELAYED</name>
+        <desc>a</desc>
+    </cmd>
+
+    <cmd val="0x36">
+        <name>RECEIVED_MULTIFRAME</name>
+        <desc>a</desc>
+    </cmd>
+
+    <cmd val="0x37">
+        <name>END_MESSAGE_EXCHANGE</name>
+        <desc>a</desc>
+    </cmd>
+
+    <cmd val="0x38">
+        <name>RECEIVED_BROADCAST_FRAME</name>
+        <desc></desc>
+    </cmd>
+
+    <cmd val="0x40">
+        <name>REQ_WRITE_RADIO_PARAM</name>
+        <desc>a</desc>
+    </cmd>
+
+    <cmd val="0x41">
+        <name>RES_WRITE_RADIO_PARAM</name>
+        <desc>a</desc>
+    </cmd>
+
+    <cmd val="0x42">
+        <name>REQ_CHANGE_UART_BAUDRATE</name>
+        <desc></desc>
+    </cmd>
+
+    <cmd val="0x43">
+        <name>RES_CHANGE_UART_BAUDRATE</name>
+        <desc></desc>
+    </cmd>
+
+    <cmd val="0x44">
+        <name>REQ_CHANGE_TX_POWER</name>
+        <desc></desc>
+    </cmd>
+
+    <cmd val="0x45">
+        <name>RES_CHANGE_TX_POWER</name>
+        <desc></desc>
+    </cmd>
+
+    <cmd val="0x46">
+        <name></name>
+        <desc></desc>
+    </cmd>
+
+    <cmd val="0x47">
+        <name></name>
+        <desc></desc>
+    </cmd>
+
+    <cmd val="0x50">
+        <name>REQ_READ_PARAM</name>
+        <desc></desc>
+    </cmd>
+
+
+    <cmd val="0x51">
+        <name>RES_READ_PARAM</name>
+        <desc></desc>
+    </cmd>
+
+    <cmd val="0x54">
+        <name>REQ_READ_TX_POWER</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x55">
+        <name>RES_READ_TX_POWER</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x5A">
+        <name>REQ_READ_AUTOCORR_STATE</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x5B">
+        <name>RES_READ_AUTOCORR_STATE</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x60">
+        <name>REQ_SELECT_CHANNEL</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x61">
+        <name>RES_SELECT_CHANNEL</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x62">
+        <name>REQ_READ_CHANNEL</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x63">
+        <name>RES_READ_CHANNEL</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x64">
+        <name>REQ_SELECT_PHYCONFIG</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x65">
+        <name>RES_SELECT_PHYCONFIG</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x66">
+        <name>REQ_READ_PHYCONFIG</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x67">
+        <name>RES_READ_PHYCONFIG</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x68">
+        <name>REQ_READ_REMOTE_RSSI</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x69">
+        <name>RES_READ_REMOTE_RSSI</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x6A">
+        <name>REQ_READ_LOCAL_RSSI</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0x6B">
+        <name>RES_READ_LOCAL_RSSI</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0xA0">
+        <name>REQ_FIRMWARE_VERSION</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0xA1">
+        <name>RES_FIRMWARE_VERSION</name>
+        <desc></desc>
+    </cmd>
+    
+    <cmd val="0xB0">
+        <name>MODE_TEST</name>
+        <desc></desc>
+    </cmd>
+</description>
